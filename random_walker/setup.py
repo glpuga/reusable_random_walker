@@ -34,6 +34,7 @@ setup(
     entry_points={
         'console_scripts': [
             'random_walker = random_walker.random_walker_node:main',
+            'random_walker_recorder = random_walker.random_walker_recorder_node:main',
         ],
     },
 )
