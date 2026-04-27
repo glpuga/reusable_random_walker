@@ -18,6 +18,7 @@ import rclpy
 from rclpy.node import Node
 
 from geometry_msgs.msg import PoseStamped, PoseWithCovarianceStamped
+from nav_msgs.msg import Odometry
 
 import random
 import yaml
@@ -55,7 +56,7 @@ class RandomWalkerNode(Node):
         self.goal_publisher_ = self.create_publisher(PoseStamped, "goal_pose", 1)
 
         self.current_pose_subscriber_ = self.create_subscription(
-            PoseWithCovarianceStamped, "pose", self.current_pose_callback, 1
+            Odometry, "odom", self.current_pose_callback, 1
         )
 
         self.goals_ = self.load_goals_file(self.goals_file_)
